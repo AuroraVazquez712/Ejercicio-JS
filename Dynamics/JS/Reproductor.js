@@ -107,6 +107,13 @@ class Playlist
             intercambiar (this._lista_canciones, indice_a, indice_b);
         }
     }
+    DesplegarLista()
+    {
+        for (iterador = 0; iterador < this._lista_canciones.lenght(); iterador++)
+        {
+            console.log(this._lista_canciones[iterador]);
+        }
+    }
     Fusionar(otra_playlist)
     {
         return otra_playlist.get().concat(this._lista_canciones);
