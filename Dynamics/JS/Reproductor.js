@@ -107,6 +107,10 @@ class Playlist
             intercambiar (this._lista_canciones, indice_a, indice_b);
         }
     }
+    Fusionar(otra_playlist)
+    {
+        return otra_playlist.get().concat(this._lista_canciones);
+    }
 }
 
 function intercambiar(lista_canciones, indice_a, indice_b)
