@@ -92,6 +92,8 @@ class ListaDeReproduccion
     pop(indice)
     {
         //Pista: Investiguen el método splice(inicio,numero_de_elementos_a_borrar) dentro del objeto Array
+        return this.lista.splice(indice, 1);    
+    
     }
 
     //Inserta un objeto canción dentro de la lista
