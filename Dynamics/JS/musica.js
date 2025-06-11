@@ -166,7 +166,47 @@ canciones =
   new Cancion("Lamento Boliviano", 20, "Rock", "Los Enanitos Verdes", "https://www.youtube.com/watch?v=_dRsmc8vDN0&pp=ygUYbGFtZW50byBib2xpdmlhbm8gbHlyaWNz"),
 ]
 
-//Probar codigo aqui
+/*Pruebas:
+1. Crear una playlist con [Canciones]
+2. Crear tres instancias de la clase canción
+3. Agregarlas a una playlist nueva
+4. Probar -> Pop, shuffle, push, fusionar y get*/
 
-let lista2 = new ListaDeReproduccion([1,2,3,4,5,6,7,8,9,10])
-console.log()
+/*=======================Primera play===================================*/
+let Temazos = new ListaDeReproduccion(canciones);
+console.log("La playlist Temazos tiene: ");
+console.log(Temazos.get());
+
+/*=======================Tres canciones===================================*/
+let Rolita_Uno = new Cancion("Fade Into You", 1, "Pop", "Mazzy Star", "https://youtu.be/avv2IIdDnnk?si=NI0ec5le8x17d8b4");
+let Rolita_Dos = new Cancion("Roi", 2, "Pop", "Videoclub", "https://youtu.be/4NOMFBRfaT0?si=FTrsCeiPw79MHwaw");
+let Rolita_Tres = new Cancion("Genesis", 3, "Electrónica", "Grimes", "https://youtu.be/WizNXQGBMEk?si=7KX6dzRSaqPhrWI-");
+
+/*=======================Nueva Playlist===================================*/
+let MasRolas = new ListaDeReproduccion([Rolita_Uno, Rolita_Dos, Rolita_Tres]);
+console.log("La playlist MasRolas tiene: ");
+console.log(MasRolas.get());
+
+/*=======================Probando funciones===================================*/
+//POP
+Temazos.pop(2);
+console.log("La playlist Temazos [ACTUALIZADA/POP] tiene: ");
+console.log(Temazos.get());
+
+//SHUFFLE
+Temazos.shuffle();
+console.log("La playlist Temazos [ACTUALIZADA/SUFFLE] tiene: ");
+console.log(MasRolas.get());
+
+//PUSH
+let Rolita_cuatro = new Cancion("Vanished", 21, "Electronica", "Crystal Castles", "https://youtu.be/m_ZeOmmE_ec?si=RYG5S6wVjf9UHu1z");
+
+Temazos.push(Rolita_cuatro);
+
+console.log("La playlist Temazos [ACTUALIZADA/PUSH] tiene: ");
+console.log(MasRolas.get());
+
+//Fusionar
+Temazos.fusionar(MasRolas);
+console.log("La playlist Temazos [ACTUALIZADA/FUSIONAR] tiene: ");
+console.log(Temazos.get());
