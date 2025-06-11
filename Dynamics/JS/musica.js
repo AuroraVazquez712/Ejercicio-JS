@@ -92,7 +92,7 @@ class ListaDeReproduccion
     pop(indice)
     {
         //Pista: Investiguen el método splice(inicio,numero_de_elementos_a_borrar) dentro del objeto Array
-        return this.lista.splice(indice, 1);    
+        return this.lista.splice(indice, 1)[0];   
     
     }
 
@@ -142,6 +142,8 @@ function intercambiar(arreglo, indicea, indiceb)
 }
 
 
+
+
 canciones = 
 [ 
   new Cancion("Bohemian Rhapsody", 1, "Rock", "Queen", "https://www.youtube.com/watch?v=yk3prd8GER4"),
@@ -165,8 +167,54 @@ canciones =
   new Cancion("La Bachata", 19, "Bachata", "Manuel Turizo", "https://www.youtube.com/watch?v=nEd7mXPQ688&pp=ygURbGEgYmFjaGF0YSBseXJpY3M%3D"),
   new Cancion("Lamento Boliviano", 20, "Rock", "Los Enanitos Verdes", "https://www.youtube.com/watch?v=_dRsmc8vDN0&pp=ygUYbGFtZW50byBib2xpdmlhbm8gbHlyaWNz"),
 ]
+//---------------------------------------
+//PRUEBA DEL CÓDIGO
 
-//Probar codigo aqui
+let miMusica = new ListaDeReproduccion([...canciones]);
 
-let lista2 = new ListaDeReproduccion([1,2,3,4,5,6,7,8,9,10])
-console.log()
+// Mostrar canciones
+console.log("Canciones en la lista:");
+let todas = miMusica.get();
+for (let i = 0; i < todas.length; i++) 
+{
+  console.log("- " + todas[i].getNombre());
+}
+
+// Quitar la última canción
+let quitada = miMusica.pop(); // quita la última canción
+if (quitada) 
+{
+  console.log("Se quitó: " + quitada.getNombre());
+}
+
+// Agregar una canción nueva
+let nueva = new Cancion("Dos soledades", 21, "Pop", "Julieta Venegas","https://www.bing.com/videos/riverview/relatedvideo?q=dos+soledades");
+miMusica.push(nueva);
+console.log("Se añadió: " + nueva.getNombre());
+
+// Mezclar las canciones
+miMusica.shuffle();
+console.log("Lista mezclada:");
+let mezcladas = miMusica.get();
+for (let i = 0; i < mezcladas.length; i++) 
+{
+  console.log("- " + mezcladas[i].getNombre());
+}
+
+// Unir con otra lista
+let listita = new ListaDeReproduccion([new Cancion("Bohemian Rhapsody", 1, "Rock", "Queen", "https://youtube.com"), new Cancion("Billie Jean", 2, "Pop", "Michael Jackson", "https://youtube.com")]);
+let fusion = miMusica.fusionar(listita);
+console.log("Lista combinada:");
+for (let i = 0; i < fusion.length; i++) 
+{
+  console.log("- " + fusion[i].getNombre());
+}
+
+// Reproducir la primera canción
+let primera = miMusica.get()[0];
+if (primera) 
+{
+  console.log("Reproduciendo: " + primera.getNombre());
+  primera.play();
+  console.log("Status: " + primera.estaReproduciendo());
+}
