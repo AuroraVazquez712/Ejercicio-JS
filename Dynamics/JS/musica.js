@@ -92,7 +92,7 @@ class ListaDeReproduccion
     pop(indice)
     {
         //Pista: Investiguen el método splice(inicio,numero_de_elementos_a_borrar) dentro del objeto Array
-        return this.lista.splice(indice, 1);    
+        return this.lista.splice(indice, 1)[0];   
     
     }
 
@@ -142,6 +142,8 @@ function intercambiar(arreglo, indicea, indiceb)
 }
 
 
+
+
 canciones = 
 [ 
   new Cancion("Bohemian Rhapsody", 1, "Rock", "Queen", "https://www.youtube.com/watch?v=yk3prd8GER4"),
@@ -165,6 +167,8 @@ canciones =
   new Cancion("La Bachata", 19, "Bachata", "Manuel Turizo", "https://www.youtube.com/watch?v=nEd7mXPQ688&pp=ygURbGEgYmFjaGF0YSBseXJpY3M%3D"),
   new Cancion("Lamento Boliviano", 20, "Rock", "Los Enanitos Verdes", "https://www.youtube.com/watch?v=_dRsmc8vDN0&pp=ygUYbGFtZW50byBib2xpdmlhbm8gbHlyaWNz"),
 ]
+//---------------------------------------
+//PRUEBA DEL CÓDIGO
 
 /*Pruebas:
 1. Crear una playlist con [Canciones]
